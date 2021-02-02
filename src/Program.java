@@ -9,7 +9,6 @@ public class Program {
         List<Integer> nums = setUpList();
         List<Integer> result = getSublistWithMaxProduct(nums, 9);
         int num = sumOfDiagonalsOfClockwiseMatrix(7);
-        int x = 5;
     }
 
     private static List<Integer> setUpList() {
