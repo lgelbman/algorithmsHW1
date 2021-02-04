@@ -126,7 +126,7 @@ public class Program {
     }
 
     public static long fastExp(int num, int exp) {
-        if (exp <= 1) {
+        if (exp == 1) {
             return num;
         } else {
             long half_result = fastExp(num, exp / 2);
