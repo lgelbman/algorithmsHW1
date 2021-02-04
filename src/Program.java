@@ -1,5 +1,7 @@
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
 
@@ -9,7 +11,12 @@ public class Program {
         List<Integer> nums = setUpList();
         List<Integer> result = getSublistWithMaxProduct(nums, 9);
         int num = sumOfDiagonalsOfClockwiseMatrix(7);
+
+        long num1 = fastExp(2, 5);
+        long num2 = fastExp(2, 10);
     }
+
+
 
     private static List<Integer> setUpList() {
         List<Integer> nums = new ArrayList<>();
@@ -28,8 +35,8 @@ public class Program {
 
     //#8
     public static List<Integer> getSublistWithMaxProduct(List<Integer> nums, int lenOfSeq) {
-        int product = getProductOfFirstNElements(nums, lenOfSeq);
-        int max = product;
+        long product = getProductOfFirstNElements(nums, lenOfSeq);
+        long max = product;
         int start = 0;
         for (int i = 1; i < nums.size() - lenOfSeq; i++) {
             int startingElement = nums.get(i - 1);
@@ -118,7 +125,18 @@ public class Program {
         return acc;
     }
 
-
+    public static long fastExp(int num, int exp) {
+        if (exp <= 1) {
+            return num;
+        } else {
+            long half_result = fastExp(num, exp / 2);
+            if (exp % 2 == 0) {
+                return half_result * half_result;
+            } else {
+                return half_result * num * half_result;
+            }
+        }
+    }
 
 
 }
